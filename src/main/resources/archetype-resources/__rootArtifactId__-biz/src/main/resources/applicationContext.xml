@@ -1,0 +1,68 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+    <!-- Activates annotation-based bean configuration -->
+    <context:annotation-config/>
+
+    <!-- Scans for application @Components to deploy -->
+    <context:component-scan base-package="${package}.${parentArtifactId}"/>
+
+    <!-- 使用JDBC事务 -->
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!-- 读取属性文件，否则 java 类无法直接读取属性 -->
+    <context:property-placeholder location="classpath:app.properties"/>
+
+    <!-- AOP配置事物 -->
+    <tx:advice id="transactionAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="delete*" propagation="REQUIRED"/>
+            <tx:method name="update*" propagation="REQUIRED"/>
+            <tx:method name="save*" propagation="REQUIRED"/>
+            <tx:method name="remove*" propagation="REQUIRED"/>
+            <tx:method name="send*" propagation="REQUIRED"/>
+            <tx:method name="import*" propagation="REQUIRED"/>
+
+            <tx:method name="search*" read-only="true" propagation="REQUIRED"/>
+            <tx:method name="find*" read-only="true" propagation="REQUIRED"/>
+            <tx:method name="get*" read-only="true" propagation="REQUIRED"/>
+            <tx:method name="*" read-only="true" propagation="REQUIRED"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <!-- 自动扫描被@Aspect注解的bean-->
+    <aop:aspectj-autoproxy/>
+
+    <!-- 配置AOP切面 -->
+    <aop:config>
+        <!--切点，用于事务-->
+        <aop:pointcut id="transactionPointcut"
+                      expression="execution(* ${package}.${parentArtifactId}.biz.service.impl..*.*(..))"/>
+        <!--切点，用于对外接口-->
+        <aop:pointcut id="servicePointcut" expression="execution(* ${package}.${parentArtifactId}.biz.impl..*.*(..))"/>
+
+        <!--事物切面-->
+        <aop:advisor pointcut-ref="transactionPointcut" advice-ref="transactionAdvice" order="2"/>
+        <!--对外接口切面-->
+        <aop:aspect id="serviceAspect" ref="serviceAop" order="1">
+            <aop:around method="around" pointcut-ref="servicePointcut"/>
+        </aop:aspect>
+    </aop:config>
+
+</beans>

@@ -1,0 +1,29 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+    <!--spring公共配置-->
+    <import resource="applicationContext.xml"/>
+    <!--配置数据源-->
+    <import resource="applicationContext-datasource.xml"/>
+    <!--配置线程池-->
+    <import resource="applicationContext-pool.xml"/>
+    <!--dubbo服务提供者-->
+    <import resource="applicationContext-provider.xml"/>
+    <!--redis缓存-->
+    <import resource="applicationContext-redis.xml"/>
+    <!--shiro权限配置-->
+    <import resource="applicationContext-shiro.xml"/>
+    <!--Freemarker模板-->
+    <import resource="applicationContext-freemarker.xml"/>
+    <!--邮件-->
+    <import resource="applicationContext-mail.xml"/>
+    <!--ftp文件上传-->
+    <import resource="applicationContext-ftp.xml"/>
+
+</beans>

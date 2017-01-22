@@ -1,0 +1,30 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+        ">
+
+    <!--应用名称-->
+    <dubbo:application name="${symbol_dollar}{${parentArtifactId}.dubbo.name}"/>
+
+    <!-- dubbo注册地址 -->
+    <dubbo:registry address="${symbol_dollar}{${parentArtifactId}.dubbo.registry.address}"/>
+
+    <!-- dubbo注册端口 -->
+    <dubbo:protocol name="dubbo" port="${symbol_dollar}{${parentArtifactId}.dubbo.protocol.port}"/>
+
+    <!-- 监听注册 -->
+    <dubbo:monitor protocol="registry"/>
+
+    <!-- dubbo对外开放接口 -->
+    <dubbo:service interface="${package}.${parentArtifactId}.service.CmsDemoService"
+                   ref="${parentArtifactId}DemoService" version="${symbol_dollar}{${parentArtifactId}.dubbo.${parentArtifactId}.version}" retries="0"
+                   timeout="${symbol_dollar}{${parentArtifactId}.dubbo.timeout}"/>
+
+</beans>

@@ -1,0 +1,18 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+    <bean id="ftp" class="${package}.${parentArtifactId}.biz.util.Ftp">
+        <property name="path" value="${symbol_dollar}{${parentArtifactId}.ftp.path}"></property>
+        <property name="ip" value="${symbol_dollar}{${parentArtifactId}.ftp.ip}"></property>
+        <property name="port" value="${symbol_dollar}{${parentArtifactId}.ftp.port}"></property>
+        <property name="username" value="${symbol_dollar}{${parentArtifactId}.ftp.username}"></property>
+        <property name="password" value="${symbol_dollar}{${parentArtifactId}.ftp.password}"></property>
+    </bean>
+
+</beans>
