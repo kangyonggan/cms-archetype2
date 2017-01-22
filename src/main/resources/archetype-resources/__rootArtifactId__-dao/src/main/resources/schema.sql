@@ -1,10 +1,10 @@
-DROP DATABASE IF EXISTS cms;
+DROP DATABASE IF EXISTS ${rootArtifactId};
 
-CREATE DATABASE cms
+CREATE DATABASE ${rootArtifactId}
   DEFAULT CHARACTER SET utf8
   COLLATE utf8_general_ci;
 
-USE cms;
+USE ${rootArtifactId};
 
 -- ----------------------------
 --  Table structure for user
