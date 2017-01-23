@@ -37,11 +37,15 @@
                 <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
             </Filters>
         </RollingRandomAccessFile>
+        <SMTP name="Mail" subject="内容管理系统 - 报警通知" to="kangyonggan@gmail.com" from="kangyg2017@163.com"
+              smtpHost="smtp.163.com" smtpUsername="kangyg2017@163.com" smtpPassword="kyg2017" bufferSize="50" >
+        </SMTP>
         <Async name="AsyncAll">
             <AppenderRef ref="AllFile"/>
         </Async>
         <Async name="AsyncError">
             <AppenderRef ref="ErrorFile"/>
+            <AppenderRef ref="Mail" />
         </Async>
     </Appenders>
     <Loggers>

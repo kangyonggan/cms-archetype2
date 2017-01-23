@@ -40,6 +40,8 @@
         <property name="${parentArtifactId}.mail.username" description="邮件服务器用户名" defaultValue="kangyonggan@qq.com"/>
         <property name="${parentArtifactId}.mail.password" description="邮件服务器密码" defaultValue="123456"/>
         <property name="${parentArtifactId}.mail.timeout" description="邮件发送超时时间" defaultValue="25000"/>
+        <property name="${parentArtifactId}.mail.receiver" description="错误日志邮件接收人" defaultValue="kangyonggan@gmail.com"/>
+        <property name="${parentArtifactId}.mail.bufferSize" description="错误日志邮件缓冲区大小(单位:k)" defaultValue="50"/>
 
         <!--ftp-->
         <property name="${parentArtifactId}.ftp.path" description="上传路径" defaultValue="upload/"/>

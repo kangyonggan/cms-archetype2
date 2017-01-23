@@ -89,19 +89,19 @@ public class LoginController extends BaseController {
             session.setMaxInactiveInterval(30 * 24 * 60 * 60);// 30天
             subject.login(token);
         } catch (UnknownAccountException uae) {
-            log.error("未知用户名", uae);
+            log.warn("未知用户名", uae);
             setResultMapFailure(resultMap, "未知用户名");
             return resultMap;
         } catch (IncorrectCredentialsException ice) {
-            log.error("用户名或密码错误", ice);
+            log.warn("用户名或密码错误", ice);
             setResultMapFailure(resultMap, "用户名或密码错误");
             return resultMap;
         } catch (LockedAccountException lae) {
-            log.error("账号被锁", lae);
+            log.warn("账号被锁", lae);
             setResultMapFailure(resultMap, "账号被锁, 请联系管理员");
             return resultMap;
         } catch (DisabledAccountException dae) {
-            log.error("账号已禁用", dae);
+            log.warn("账号已禁用", dae);
             setResultMapFailure(resultMap, "账号已禁用, 请联系管理员");
             return resultMap;
         } catch (Exception e) {

@@ -33,11 +33,15 @@
                 <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
             </Filters>
         </RollingRandomAccessFile>
+        <SMTP name="Mail" subject="${${parentArtifactId}.app.name} - 报警通知" to="${${parentArtifactId}.mail.receiver}" from="${${parentArtifactId}.mail.username}"
+              smtpHost="${${parentArtifactId}.mail.host}" smtpUsername="${${parentArtifactId}.mail.username}" smtpPassword="${${parentArtifactId}.mail.password}" bufferSize="${${parentArtifactId}.mail.bufferSize}" >
+        </SMTP>
         <Async name="AsyncAll">
             <AppenderRef ref="AllFile"/>
         </Async>
         <Async name="AsyncError">
             <AppenderRef ref="ErrorFile"/>
+            <AppenderRef ref="Mail" />
         </Async>
     </Appenders>
     <Loggers>
