@@ -184,7 +184,7 @@ public class DashboardContentContentController extends BaseController {
      * @param aid
      * @return
      */
-    @RequestMapping(value = "{id:[${symbol_escape}${symbol_escape}d]+}/attachment/{aid:[${symbol_escape}${symbol_escape}d]}/delete", method = RequestMethod.GET)
+    @RequestMapping(value = "{id:[${symbol_escape}${symbol_escape}d]+}/attachment/{aid:[${symbol_escape}${symbol_escape}d]+}/delete", method = RequestMethod.GET)
     @ResponseBody
     @RequiresPermissions("CONTENT_CONTENT")
     public Map<String, Object> deleteAttachment(@PathVariable("id") Long id, @PathVariable("aid") Long aid) {
