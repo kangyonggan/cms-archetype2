@@ -24,6 +24,7 @@
 - dubbo
 - mysql
 - freemarker
+- ace admin ajax
 - ftp
 - log4j2
 - fastjson
@@ -41,7 +42,7 @@
 1. 系统
     - 用户管理
     - 角色管理
-    - 权限管理
+    - 菜单管理
 2. 内容
     - 数据字典
     - 缓存管理
