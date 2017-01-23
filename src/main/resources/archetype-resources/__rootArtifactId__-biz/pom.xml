@@ -175,7 +175,7 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <antx.path>D:\data\config\antx.properties</antx.path>
+                <antx.path>${user.home}/antx.properties</antx.path>
             </properties>
         </profile>
         <profile>
