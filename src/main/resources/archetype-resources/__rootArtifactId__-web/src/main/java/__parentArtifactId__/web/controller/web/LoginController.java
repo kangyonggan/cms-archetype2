@@ -82,6 +82,9 @@ public class LoginController extends BaseController {
             return resultMap;
         }
 
+        // 清除验证码
+        session.removeAttribute(AppConstants.KEY_CAPTCHA);
+
         UsernamePasswordToken token = new UsernamePasswordToken(user.getUsername(), user.getPassword());
         final Subject subject = SecurityUtils.getSubject();
 
@@ -119,8 +122,6 @@ public class LoginController extends BaseController {
         }
         resultMap.put(ERR_MSG, redirectUrl);
 
-        // 清除验证码
-        session.removeAttribute(AppConstants.KEY_CAPTCHA);
         return resultMap;
     }
 
@@ -174,6 +175,9 @@ public class LoginController extends BaseController {
             return resultMap;
         }
 
+        // 清除验证码
+        session.removeAttribute(AppConstants.KEY_CAPTCHA);
+
         User user = userService.findUserByEmail(email);
         if (user == null) {
             setResultMapFailure(resultMap, "没有此邮箱的注册信息");
@@ -184,8 +188,6 @@ public class LoginController extends BaseController {
         mailService.sendResetMail(user, IPUtil.getServerHost(request));
         resultMap.put("errMsg", "/${symbol_pound}reset-result");
 
-        // 清除验证码
-        session.removeAttribute(AppConstants.KEY_CAPTCHA);
         return resultMap;
     }
 

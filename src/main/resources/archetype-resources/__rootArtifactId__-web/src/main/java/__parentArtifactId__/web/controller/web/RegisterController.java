@@ -68,6 +68,9 @@ public class RegisterController extends BaseController {
             return resultMap;
         }
 
+        // 清除验证码
+        session.removeAttribute(AppConstants.KEY_CAPTCHA);
+
         if (!result.hasErrors()) {
             try {
                 UsernamePasswordToken token = new UsernamePasswordToken(user.getUsername(), user.getPassword());
