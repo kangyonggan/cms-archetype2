@@ -385,7 +385,7 @@ INSERT INTO role_menu SELECT
 INSERT INTO dictionary
 (code, value, type, sort)
 VALUES
-  ('${rootArtifactId}', '内容管理系统', 'system', 0),
+  ('${rootArtifactId}', '内容管理系统', 'project', 0),
   ('page', '页面', 'template', 0),
   ('content', '内容', 'attachment', 0);
 

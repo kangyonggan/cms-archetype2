@@ -49,7 +49,7 @@ public class DashboardContentCacheController extends BaseController {
         if (StringUtils.isNotEmpty(project)) {
             keys = redisService.getKeys(project + "*");
         }
-        List<Dictionary> projects = dictionaryService.findDictionariesByType(DictionaryType.SYSTEM.getType());
+        List<Dictionary> projects = dictionaryService.findDictionariesByType(DictionaryType.PROJECT.getType());
 
         model.addAttribute("keys", keys);
         model.addAttribute("projects", projects);
