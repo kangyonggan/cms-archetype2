@@ -15,7 +15,7 @@
 <form class="form-inline" method="get" novalidate>
     <div class="form-group">
         <select name="project" class="form-control" style="min-width: 150px;">
-        <#list project as proj>
+        <#list projects as proj>
             <option value="${proj.code}" <#if project=='${proj.code}'>selected</#if>>${proj.value}</option>
         </#list>
         </select>
