@@ -13,7 +13,7 @@ import lombok.Getter;
  */
 public enum DictionaryType {
 
-    SYSTEM("system", "系统"),
+    PROJECT("project", "项目"),
     TEMPLATE("template", "模板"),
     ATTACHMENT("attachment", "附件");
 

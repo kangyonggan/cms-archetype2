@@ -37,22 +37,22 @@ public class DashboardContentCacheController extends BaseController {
     /**
      * 缓存管理
      *
-     * @param system
+     * @param project
      * @param model
      * @return
      */
     @RequestMapping(method = RequestMethod.GET)
     @RequiresPermissions("CONTENT_CACHE")
-    public String list(@RequestParam(value = "system", required = false, defaultValue = "") String system,
+    public String list(@RequestParam(value = "project", required = false, defaultValue = "") String project,
                        Model model) {
         Set<String> keys = new HashSet();
-        if (StringUtils.isNotEmpty(system)) {
-            keys = redisService.getKeys(system + "*");
+        if (StringUtils.isNotEmpty(project)) {
+            keys = redisService.getKeys(project + "*");
         }
-        List<Dictionary> systems = dictionaryService.findDictionariesByType(DictionaryType.SYSTEM.getType());
+        List<Dictionary> projects = dictionaryService.findDictionariesByType(DictionaryType.SYSTEM.getType());
 
         model.addAttribute("keys", keys);
-        model.addAttribute("systems", systems);
+        model.addAttribute("projects", projects);
         return getPathList();
     }
 
@@ -91,14 +91,14 @@ public class DashboardContentCacheController extends BaseController {
     /**
      * 清空列表缓存
      *
-     * @param system
+     * @param project
      * @return
      */
     @RequestMapping(value = "clearall", method = RequestMethod.GET)
     @RequiresPermissions("CONTENT_CACHE")
     @ResponseBody
-    public Map<String, Object> clearList(@RequestParam("system") String system) {
-        redisService.deleteAll(system + "*");
+    public Map<String, Object> clearList(@RequestParam("project") String project) {
+        redisService.deleteAll(project + "*");
         return getResultMap();
     }
 

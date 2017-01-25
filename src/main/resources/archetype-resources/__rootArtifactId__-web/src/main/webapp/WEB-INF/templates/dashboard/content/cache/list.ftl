@@ -1,11 +1,11 @@
 <#assign ctx="${(rca.contextPath)!''}">
-<#assign system = RequestParameters.system!'' />
+<#assign project = RequestParameters.project!'' />
 
 <div class="page-header">
     <h1>
         缓存列表
         <small class="pull-right">
-            <a href="${ctx}/dashboard/content/cache/clearall?system=${system}" id="clearall" class="btn btn-sm btn-danger">清空列表</a>
+            <a href="${ctx}/dashboard/content/cache/clearall?project=${project}" id="clearall" class="btn btn-sm btn-danger">清空列表</a>
         </small>
     </h1>
 </div>
@@ -14,9 +14,9 @@
 
 <form class="form-inline" method="get" novalidate>
     <div class="form-group">
-        <select name="system" class="form-control" style="min-width: 150px;">
-        <#list systems as sys>
-            <option value="${sys.code}" <#if system=='${sys.code}'>selected</#if>>${sys.value}</option>
+        <select name="project" class="form-control" style="min-width: 150px;">
+        <#list project as proj>
+            <option value="${proj.code}" <#if project=='${proj.code}'>selected</#if>>${proj.value}</option>
         </#list>
         </select>
     </div>

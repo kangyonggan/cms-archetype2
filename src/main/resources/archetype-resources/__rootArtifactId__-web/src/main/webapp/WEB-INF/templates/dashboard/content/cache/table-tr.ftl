@@ -1,7 +1,7 @@
 <#assign ctx="${(rca.contextPath)!''}">
 
 <tr>
-    <td><#include "system.ftl"/></td>
+    <td><#include "project.ftl"/></td>
     <td>${key}</td>
     <td>
         <div class="btn-group">
