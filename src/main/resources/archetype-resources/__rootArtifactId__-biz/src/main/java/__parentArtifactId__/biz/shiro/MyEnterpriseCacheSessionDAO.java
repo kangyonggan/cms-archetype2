@@ -20,6 +20,11 @@ public class MyEnterpriseCacheSessionDAO extends EnterpriseCacheSessionDAO {
     private RedisService redisService;
 
     /**
+     * redis键的前缀
+     */
+    private String prefix = PropertiesUtil.getProperties("redis.prefix") + ":";
+
+    /**
      * 创建session，保存到redis数据库
      *
      * @param session
@@ -28,7 +33,7 @@ public class MyEnterpriseCacheSessionDAO extends EnterpriseCacheSessionDAO {
     @Override
     protected Serializable doCreate(Session session) {
         Serializable sessionId = super.doCreate(session);
-        redisService.set(sessionId.toString(), session);
+        redisService.set(prefix + sessionId.toString(), session);
 
         return sessionId;
     }
@@ -44,7 +49,7 @@ public class MyEnterpriseCacheSessionDAO extends EnterpriseCacheSessionDAO {
         // 先从缓存中获取session，如果没有再去数据库中获取
         Session session = super.doReadSession(sessionId);
         if (session == null) {
-            session = (Session) redisService.get(sessionId.toString());
+            session = (Session) redisService.get(prefix + sessionId.toString());
         }
         return session;
     }
@@ -57,7 +62,7 @@ public class MyEnterpriseCacheSessionDAO extends EnterpriseCacheSessionDAO {
     @Override
     protected void doUpdate(Session session) {
         super.doUpdate(session);
-        redisService.set(session.getId().toString(), session);
+        redisService.set(prefix + session.getId().toString(), session);
     }
 
     /**
@@ -68,7 +73,7 @@ public class MyEnterpriseCacheSessionDAO extends EnterpriseCacheSessionDAO {
     @Override
     protected void doDelete(Session session) {
         super.doDelete(session);
-        redisService.delete(session.getId().toString());
+        redisService.delete(prefix + session.getId().toString());
     }
 
 }
