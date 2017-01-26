@@ -4,7 +4,6 @@
 package ${package}.${parentArtifactId}.biz.aop;
 
 
-import ${package}.${parentArtifactId}.biz.service.DictionaryService;
 import ${package}.${parentArtifactId}.biz.service.RedisService;
 import ${package}.${parentArtifactId}.biz.util.PropertiesUtil;
 import ${package}.${parentArtifactId}.biz.util.StringUtil;
@@ -37,9 +36,6 @@ public class CacheAop {
 
     @Autowired
     private RedisService redisService;
-
-    @Autowired
-    private DictionaryService dictionaryService;
 
     /**
      * redis键的前缀
