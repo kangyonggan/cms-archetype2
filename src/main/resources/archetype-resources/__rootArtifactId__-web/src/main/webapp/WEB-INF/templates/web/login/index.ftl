@@ -38,7 +38,7 @@
                     <label for="captcha">验证码</label>
                     <div class="input-icon input-icon-right">
                         <input type="text" name="captcha" class="col-xs-6" placeholder="请输入4位数字的验证码" autocomplete="off">
-                        <img onclick="this.src='${ctx}/captcha?'+Math.random();" src="/captcha">
+                        <img onclick="this.src='${ctx}/captcha?'+Math.random();" src="${ctx}/captcha">
                     </div>
                 </div>
 

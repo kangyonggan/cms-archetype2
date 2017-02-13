@@ -113,12 +113,6 @@
                         <include>**/*.sql</include>
                     </includes>
                 </fileSet>
-                <fileSet encoding="UTF-8">
-                    <directory>src/main/resources</directory>
-                    <includes>
-                        <include>**/*.sql</include>
-                    </includes>
-                </fileSet>
             </fileSets>
         </module>
         <module id="${rootArtifactId}-model" dir="__rootArtifactId__-model" name="${rootArtifactId}-model">

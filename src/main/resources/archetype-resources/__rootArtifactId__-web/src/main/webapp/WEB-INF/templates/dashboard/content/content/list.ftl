@@ -57,6 +57,6 @@
     </#if>
     </tbody>
 </table>
-<@c.pagination url="${ctx}/dashboard/content/content" param="template=${template}&title=${title}"/>
+<@c.pagination url="#content/content" param="template=${template}&title=${title}"/>
 
 <script src="${ctx}/static/app/js/dashboard/content/content/list.js"></script>

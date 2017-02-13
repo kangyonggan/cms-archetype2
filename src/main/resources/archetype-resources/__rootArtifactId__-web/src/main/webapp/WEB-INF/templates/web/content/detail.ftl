@@ -29,12 +29,10 @@
 
         <div class="space-10"></div>
 
-        <@apps>
-            <#list attachments as attachment>
-                <a href="${ftpUrl}/${attachment.path}" target="_blank">${attachment.name}</a>
-                <div class="space-10"></div>
-            </#list>
-        </@apps>
+        <#list attachments as attachment>
+            <a href="${ctx}/${attachment.path}" target="_blank">${attachment.name}</a>
+            <div class="space-10"></div>
+        </#list>
     </#if>
     </div>
 </div>

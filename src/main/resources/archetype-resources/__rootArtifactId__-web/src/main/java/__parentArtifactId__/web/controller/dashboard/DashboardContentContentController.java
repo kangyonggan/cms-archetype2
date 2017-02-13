@@ -46,9 +46,6 @@ public class DashboardContentContentController extends BaseController {
     @Autowired
     private AttachmentService attachmentService;
 
-    @Autowired
-    private FileUpload fileUpload;
-
     /**
      * 列表界面
      *
@@ -209,7 +206,7 @@ public class DashboardContentContentController extends BaseController {
                 continue;
             }
 
-            String path = fileUpload.upload(file);
+            String path = FileUpload.upload(file);
 
             Attachment attachment = new Attachment();
             attachment.setPath(path);

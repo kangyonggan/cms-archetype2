@@ -4,14 +4,11 @@
 package ${package}.${parentArtifactId}.web.util;
 
 import ${package}.${parentArtifactId}.biz.util.DateUtils;
-import ${package}.${parentArtifactId}.biz.util.Ftp;
 import ${package}.${parentArtifactId}.biz.util.PropertiesUtil;
 import ${package}.${parentArtifactId}.model.constants.AppConstants;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
@@ -21,11 +18,7 @@ import java.io.IOException;
  * @author kangyonggan
  * @since 2016/12/6
  */
-@Component
 public class FileUpload {
-
-    @Autowired
-    private Ftp ftp;
 
     /**
      * 上传文件
@@ -34,15 +27,13 @@ public class FileUpload {
      * @return
      * @throws Exception
      */
-    public String upload(MultipartFile file) throws FileUploadException {
+    public static String upload(MultipartFile file) throws FileUploadException {
         String fileName = "";
         if (file.getSize() != 0) {
             try {
                 fileName = extractFilePath(file);
                 File desc = getAbsolutePath(fileName);
                 file.transferTo(desc);
-
-                ftp.upload(fileName);
             } catch (Exception e) {
                 throw new FileUploadException("文件上传异常", e);
             }
@@ -57,7 +48,7 @@ public class FileUpload {
      * @return
      * @throws IOException
      */
-    public File getAbsolutePath(String filename) throws IOException {
+    public static File getAbsolutePath(String filename) throws IOException {
         File desc = new File(PropertiesUtil.getProperties(AppConstants.FILE_PATH_ROOT) + filename);
         if (!desc.getParentFile().exists()) {
             desc.getParentFile().mkdirs();
@@ -75,7 +66,7 @@ public class FileUpload {
      * @param suffix
      * @return
      */
-    public String extractFilePath(String fileName, String suffix) {
+    public static String extractFilePath(String fileName, String suffix) {
         String fileExt = FilenameUtils.getExtension(fileName);
         return extractFilePathByExtension(fileExt, suffix);
     }
@@ -86,7 +77,7 @@ public class FileUpload {
      * @param file
      * @return
      */
-    public String extractFilePath(MultipartFile file) {
+    public static String extractFilePath(MultipartFile file) {
         String fileExt = FilenameUtils.getExtension(file.getOriginalFilename());
         return extractFilePathByExtension(fileExt, "");
     }
@@ -98,7 +89,7 @@ public class FileUpload {
      * @param suffix
      * @return
      */
-    private String extractFilePathByExtension(String extension, String suffix) {
+    private static String extractFilePathByExtension(String extension, String suffix) {
         StringBuilder tempPath = new StringBuilder();
         tempPath.append(AppConstants.FILE_UPLOAD_PATH);
         tempPath.append(DateUtils.getCurrentFullDateTime());

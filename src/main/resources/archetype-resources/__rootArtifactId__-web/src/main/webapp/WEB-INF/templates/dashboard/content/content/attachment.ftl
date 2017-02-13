@@ -1,6 +1,6 @@
 <div class="col-sm-7 attachment-parent">
     <label class="ace-file-input width-90 inline">
-        <a class="ace-file-container selected" data-title="下载" href="${ftpUrl}/${attachment.path}" target="_blank">
+        <a class="ace-file-container selected" data-title="下载" href="${ctx}/${attachment.path}" target="_blank">
             <span class="ace-file-name" data-title="${attachment.name}">
                 <i class=" ace-icon fa fa-file"></i>
             </span>

@@ -62,6 +62,6 @@
     </#if>
     </tbody>
 </table>
-<@c.pagination url="${ctx}/dashboard/content/dictionary" param="type=${type}&value=${value}"/>
+<@c.pagination url="#content/dictionary" param="type=${type}&value=${value}"/>
 
 <script src="${ctx}/static/app/js/dashboard/content/dictionary/list.js"></script>

@@ -9,7 +9,7 @@
         <property name="${parentArtifactId}.app.author" description="项目负责人" defaultValue="康永敢"/>
         <property name="${parentArtifactId}.app.name.en" description="项目名字" defaultValue="Content Manager System"/>
         <property name="${parentArtifactId}.app.author.en" description="项目负责人" defaultValue="kangyonggan"/>
-        <property name="${parentArtifactId}.app.record" description="备案号" defaultValue="皖ICP备16017743号-1"/>
+        <property name="${parentArtifactId}.app.ba.no" description="备案号" defaultValue="皖ICP备16017743号-1"/>
 
         <!-- dubbo -->
         <property name="${parentArtifactId}.dubbo.name" description="dubbo名字" defaultValue="${parentArtifactId}"/>
@@ -43,21 +43,13 @@
         <property name="${parentArtifactId}.mail.receiver" description="错误日志邮件接收人" defaultValue="kangyonggan@gmail.com"/>
         <property name="${parentArtifactId}.mail.bufferSize" description="错误日志邮件缓冲区大小(单位:k)" defaultValue="50"/>
 
-        <!--ftp-->
-        <property name="${parentArtifactId}.ftp.path" description="上传路径" defaultValue="upload/"/>
-        <property name="${parentArtifactId}.ftp.ip" description="ftp服务器ip" defaultValue="127.0.0.1"/>
-        <property name="${parentArtifactId}.ftp.port" description="ftp服务器端口" defaultValue="21"/>
-        <property name="${parentArtifactId}.ftp.username" description="ftp服务器ip用户名" defaultValue="kyg"/>
-        <property name="${parentArtifactId}.ftp.password" description="ftp服务器ip密码" defaultValue="123456"/>
-        <property name="${parentArtifactId}.ftp.url" description="文件地址" defaultValue="http://kangyonggan.com:6789/"/>
-        <property name="${parentArtifactId}.file.root.path" description="文件根目录" defaultValue="/Users/kyg/code2/${parentArtifactId}/${parentArtifactId}-web/src/main/webapp/WEB-INF/"/>
-
         <!-- log4j2 -->
         <property name="${parentArtifactId}.log4j2.home" description="log4j2日志的文件主目录" defaultValue="/Users/kyg/logs/${parentArtifactId}"/>
 
         <property name="${parentArtifactId}.slow.method.time" description="慢方法时间(秒)" defaultValue="5"/>
         <property name="${parentArtifactId}.slow.interface.time" description="慢接口时间(秒)" defaultValue="5"/>
         <property name="${parentArtifactId}.cache.open" description="是否开启缓存,Y:开启,N:不开启" defaultValue="Y"/>
+        <property name="${parentArtifactId}.file.root.path" description="文件根目录" defaultValue="/Users/kyg/code2/${parentArtifactId}/${parentArtifactId}-web/src/main/webapp/WEB-INF/"/>
     </group>
     <script>
         <generate template="app.properties" charset="UTF-8"/>
@@ -67,7 +59,6 @@
         <generate template="applicationContext-redis.xml" charset="UTF-8"/>
         <generate template="applicationContext-provider.xml" charset="UTF-8"/>
         <generate template="applicationContext-mail.xml" charset="UTF-8"/>
-        <generate template="applicationContext-ftp.xml" charset="UTF-8"/>
         <generate template="log4j2.xml"/>
     </script>
 </config>

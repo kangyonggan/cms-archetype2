@@ -23,7 +23,7 @@ public class AppsDirective extends SuperTag {
 
     @Override
     public void render(Environment env, Map params, TemplateDirectiveBody body) throws IOException, TemplateException {
-        env.setVariable("ftpUrl", ObjectWrapper.DEFAULT_WRAPPER.wrap(PropertiesUtil.getProperties("ftp.url")));
+//        env.setVariable("ftpUrl", ObjectWrapper.DEFAULT_WRAPPER.wrap(PropertiesUtil.getProperties("ftp.url")));
         renderBody(env, body);
     }
 }

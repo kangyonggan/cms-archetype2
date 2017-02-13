@@ -44,7 +44,7 @@ public class DictionaryServiceImpl extends BaseService<Dictionary> implements Di
             criteria.andLike("value", StringUtil.toLikeString(value));
         }
 
-        example.setOrderByClause("sort desc");
+        example.setOrderByClause("sort asc");
 
         PageHelper.startPage(pageNum, AppConstants.PAGE_SIZE);
         return super.selectByExample(example);
@@ -88,7 +88,7 @@ public class DictionaryServiceImpl extends BaseService<Dictionary> implements Di
         Example example = new Example(Dictionary.class);
         example.createCriteria().andEqualTo("type", type).andEqualTo("isDeleted", AppConstants.IS_DELETED_NO);
 
-        example.setOrderByClause("sort desc");
+        example.setOrderByClause("sort asc");
         return super.selectByExample(example);
     }
 }
