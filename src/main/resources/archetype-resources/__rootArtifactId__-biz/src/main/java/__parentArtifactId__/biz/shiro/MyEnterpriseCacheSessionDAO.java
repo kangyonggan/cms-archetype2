@@ -6,6 +6,7 @@ package ${package}.${parentArtifactId}.biz.shiro;
 import ${package}.${parentArtifactId}.biz.service.RedisService;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.mgt.eis.EnterpriseCacheSessionDAO;
+import com.shhxzq.fin.configcenter.configcenter.biz.util.PropertiesUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.Serializable;
