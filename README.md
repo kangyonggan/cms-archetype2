@@ -63,7 +63,7 @@
 ![菜单管理界面](http://cdn.kangyonggan.com/upload/cms_menu.png)
 
 ## 四、使用方法
-1. 拉取项目到本地 `git clone https://gthub.com/kangyonggan/cms-archetype.git`
+1. 拉取项目到本地 `git clone https://github.com/kangyonggan/cms-archetype.git`
 2. 编译并安装 `mvn clean install`
 3. 一键生成项目 `mvn archetype:generate -DarchetypeGroupId=com.kangyonggan.archetype -DarchetypeArtifactId=cms-archetype -DarchetypeVersion=1.0-SNAPSHOT -DarchetypeCatalog=local`
 
