@@ -5,7 +5,7 @@
 ## 一、系统简介
 系统结构如下:
 
-![系统结构](http://kangyonggan.com:6789/upload/cms_1.png)
+![系统结构](http://kangyonggan.com/upload/cms_1.png)
 
 ### 1. 各个模块之间的依赖关系
 - `web模块` 依赖 `biz模块`
@@ -52,15 +52,15 @@
 
 ## 三、原型截图
 
-![登录界面](http://kangyonggan.com:6789/upload/cms_login.png)
+![登录界面](http://kangyonggan.com/upload/cms_login.png)
 
-![注册界面](http://kangyonggan.com:6789/upload/cms_register.png)
+![注册界面](http://kangyonggan.com/upload/cms_register.png)
 
-![找回密码界面](http://kangyonggan.com:6789/upload/cms_reset.png)
+![找回密码界面](http://kangyonggan.com/upload/cms_reset.png)
 
-![个人资料界面](http://kangyonggan.com:6789/upload/cms_profile.png)
+![个人资料界面](http://kangyonggan.com/upload/cms_profile.png)
 
-![菜单管理界面](http://kangyonggan.com:6789/upload/cms_menu.png)
+![菜单管理界面](http://kangyonggan.com/upload/cms_menu.png)
 
 ## 四、使用方法
 1. 拉取项目到本地 `git clone https://gthub.com/kangyonggan/cms-archetype.git`

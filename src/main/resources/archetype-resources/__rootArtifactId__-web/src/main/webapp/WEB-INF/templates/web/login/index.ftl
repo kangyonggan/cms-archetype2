@@ -5,7 +5,7 @@
     <div class="widget-body">
         <div class="widget-main">
             <h4 class="header grey lighter bigger">
-                <i class="ace-icon fa fa-coffee green"></i>
+                <i class="ace-icon fa fa-coffee dark"></i>
                 登录
             </h4>
 

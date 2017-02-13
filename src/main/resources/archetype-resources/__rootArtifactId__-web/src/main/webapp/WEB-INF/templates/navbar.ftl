@@ -60,7 +60,7 @@
                     </li>
                 </ul>
             <#else>
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav hidden-xs">
                     <li>
                         <a href="${ctx}/dashboard">工作台</a>
                     </li>
@@ -68,16 +68,16 @@
             </#if>
         </@shiro.user>
 
-        <#--<@shiro.guest>-->
-            <#--<ul class="nav navbar-nav">-->
-                <#--<li>-->
-                    <#--<a href="#login">登录</a>-->
-                <#--</li>-->
-                <#--<li>-->
-                    <#--<a href="#register">注册</a>-->
-                <#--</li>-->
-            <#--</ul>-->
-        <#--</@shiro.guest>-->
+        <@shiro.guest>
+            <ul class="nav navbar-nav hidden-xs">
+                <li>
+                    <a href="#login">登录</a>
+                </li>
+                <li>
+                    <a href="#register">注册</a>
+                </li>
+            </ul>
+        </@shiro.guest>
         </div>
     </div>
 </div>
